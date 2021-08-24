@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!--    from view of the addition model-->
+    <record id="addition_tree" model="ir.ui.view">
+        <field name="name">addition.num.tree</field>
+        <field name="model">addition.num</field>
+        <field name="arch" type="xml">
+            <tree string="Addition">
+                    <field name="num1"/>
+                    <field name="num2"/>
+            </tree>
+        </field>
+    </record>
+    <!--    from view of the addition model-->
+    <record id="addition_form" model="ir.ui.view">
+        <field name="name">addition.num.form</field>
+        <field name="model">addition.num</field>
+        <field name="arch" type="xml">
+            <form string="Addition">
+                <group>
+                    <field name="num1"/>
+                    <field name="num2"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <!--    action of the addition menu-->
+    <record id="action_addition" model="ir.actions.act_window">
+        <field name="name">Addition</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">addition.num</field>
+        <!--        <field name="view_type">form</field>-->
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Addition :)
+            </p>
+        </field>
+    </record>
+    <menuitem id="calculator_root" name="Calculator" sequence="0"/>
+    <menuitem id="calculator_addition" name="Addition" parent="calculator_root" action="action_addition"/>
+</odoo>
